@@ -4,7 +4,18 @@ In Lab 1 you pick a programming language and framework of your choice, then buil
 
 The goal isn't to write a large application. It's to get comfortable packaging and running a service in a container, and to understand the moving parts around it: images, containers, ports, and volumes.
 
-I have pushed this image at the following URL: ... (complete here).
+I have pushed this image at: <https://hub.docker.com/r/simonaronsapi/kubernetes-lab-node-service>
+
+## Express service
+
+This repository includes an Express service at the root. Build the image and start a container:
+
+```bash
+docker build -t kubernetes-lab-node-service .
+docker run --rm --name kubernetes-lab-node-service -p 8080:8080 kubernetes-lab-node-service
+```
+
+The service is available at <http://localhost:8080>. `GET /health` returns `{"status":"ok"}` and is used by the image health check.
 
 ---
 
